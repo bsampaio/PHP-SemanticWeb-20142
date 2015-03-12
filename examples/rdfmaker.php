@@ -21,10 +21,9 @@
         $mode = "w";
         $myfile = fopen($filename, $mode);
         fwrite($myfile, $data);
-        echo "We try to save the file was saved in: ".$filename;
         fclose($myfile);
         
-        return '/easyrdf/ontology/person/'.$rdfname.'.rdf';
+        return '/ontology/person/'.$rdfname.'.rdf';
     }
 
 
