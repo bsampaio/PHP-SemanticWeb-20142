@@ -14,7 +14,7 @@
     require_once realpath(__DIR__.'/..')."/vendor/autoload.php";
     require_once __DIR__."/html_tag_helpers.php";
     
-    $personUrl = realpath(__DIR__.'/..').'/ontology/person#';
+    $personUrl = $_SERVER['SERVER_NAME'].'/ontology/person#';
     
     
     function criarClienteRdf($rdfname, $data){
