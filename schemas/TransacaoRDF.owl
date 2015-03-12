@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2015/3/ontology.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Characterization1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Characterization1">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Characterization1"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Formal1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Formal1">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Formal1"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Characterization1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Characterization1">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Formal1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Formal1">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1.Pedido.Produtos -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1.Pedido.Produtos">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1.Vendedor.Cliente -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1.Vendedor.Cliente">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Cliente"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Vendedor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Material1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Material1">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Material1.Pedido.Produtos -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Material1.Pedido.Produtos">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1.Pedido.Produtos"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Material1"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Material1.Vendedor.Cliente -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Material1.Vendedor.Cliente">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Cliente"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1.Vendedor.Cliente"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Material1"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Vendedor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Cliente -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Cliente">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1.Vendedor.Cliente"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Vendedor"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Venda"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Empresa -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Empresa"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Characterization1"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Formal1"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Material1.Pedido.Produtos"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Venda"/>
+    </owl:Class>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+        </owl:members>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido_Aberto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido_Aberto">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido_Entregue -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido_Entregue"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido_Realizado -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido_Realizado">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Produtos">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Characterization1"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Formal1"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#INV.Material1.Pedido.Produtos"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Pedido"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Venda"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Venda -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Venda"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Vendedor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Vendedor">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Material1.Vendedor.Cliente"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2015/3/ontology.owl#Cliente"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.4) http://owlapi.sourceforge.net -->
+
