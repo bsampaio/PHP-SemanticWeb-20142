@@ -16,6 +16,7 @@
     
     $personUrl = realpath(__DIR__.'/..').'/ontology/person#';
     
+    
     function criarClienteRdf($rdfname, $data){
         $filename = realpath(__DIR__.'/..').'/ontology/person/'.$rdfname.'.rdf';
         $mode = "w";
@@ -23,7 +24,7 @@
         fwrite($myfile, $data);
         fclose($myfile);
         
-        return '/ontology/person/'.$rdfname.'.rdf';
+        return 'http://'.$_SERVER['SERVER_NAME'].'/ontology/person/'.$rdfname.'.rdf';
     }
 
 
