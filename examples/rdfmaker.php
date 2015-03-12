@@ -14,14 +14,16 @@
     require_once realpath(__DIR__.'/..')."/vendor/autoload.php";
     require_once __DIR__."/html_tag_helpers.php";
     
+    $personUrl = realpath(__DIR__.'/..').'/ontology/person#';
+    
     function criarClienteRdf($rdfname, $data){
-        $filename = 'rdfrepository/'.$rdfname.'.rdf';
+        $filename = realpath(__DIR__.'/..').'/ontology/person/'.$rdfname.'.rdf';
         $mode = "w";
         $myfile = fopen($filename, $mode);
         fwrite($myfile, $data);
         fclose($myfile);
         
-        return $filename;
+        return '/easyrdf/ontology/person/'.$rdfname.'.rdf';
     }
 
 
@@ -33,14 +35,14 @@
     }
 ?>
 <html>
-<head><title>EasyRdf FOAF Maker Example</title></head>
+<head><title>Cadastro de Clientes - RDF</title></head>
 <body>
 <h1>Cadastro de Clientes</h1>
 
 <?= form_tag(null, array('method' => 'POST')) ?>
 
 <h2>Identificador</h2>
-<?= labeled_text_field_tag('uri', 'http://www.example.com/breno#me', array('size'=>40)) ?><br />
+<?= labeled_text_field_tag('uri', $personUrl.'BrenoGrillo', array('size'=>40)) ?><br />
 
 <h2>Detalhes</h2>
 <?= labeled_text_field_tag('document', '3.123.332-ES', array('size'=>12)) ?><br />
@@ -57,9 +59,9 @@
     if (isset($_REQUEST['uri'])) {
 
         $graph = new \EasyRdf\Graph();
-
+        
         #Inserir o namespace de person para utilizar na montagem do RDF/XML
-        \EasyRdf\RdfNamespace::set('person', 'http://localhost/ontology/person#');
+        \EasyRdf\RdfNamespace::set('person', $personUrl);
 
         # 1st Technique
         $me = $graph->resource($_REQUEST['uri'], 'person:Cliente');
