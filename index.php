@@ -57,7 +57,7 @@ ini_set('display_errors',0);
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#about">Customer</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#download">Download</a>

@@ -34,7 +34,7 @@
     }
 ?>
 
-    <h2>Cadastro de Clientes</h2>
+    <h2>Customer</h2>
 
     <form action="./#about" method="POST" class="form-horizontal" role="form">
         <div class="form-group">
@@ -56,9 +56,19 @@
         <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control" name="email" id="email" value="" placeholder="josedasilva@hotmail.com"/><br/>
-        <input class="form-control btn-default" type="submit">
+        <?php
+            if(!(isset($_REQUEST['firstName'])&&isset($_REQUEST['firstName']))){
+        ?>
+        <input class="form-control btn-default" value="Submit" type="submit"/>
+        <?php
+            }
+            else{
+        ?>
+                <a class="form-control btn btn-success" href="<?= criarClienteRdf($_REQUEST['firstName'].$_REQUEST['lastName'], $data)?>">RDF File</a>
+        <?php
+            }
+        ?>
         </div>
-
     </form>
 <?php
     $format_options = array();
@@ -97,11 +107,4 @@
         
     }
 ?>
-<?php
-    echo 'Right Button > Save As...';
-    if(isset($_REQUEST['firstName'])&&isset($_REQUEST['firstName'])){
-?>
-    <br/><a href="<?= criarClienteRdf($_REQUEST['firstName'].$_REQUEST['lastName'], $data)?>">RDF File</a>
-<?php
-    }
-?>
+
