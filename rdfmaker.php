@@ -59,12 +59,7 @@
         <?php
             if(!(isset($_REQUEST['firstName'])&&isset($_REQUEST['firstName']))){
         ?>
-        <input class="form-control btn-default" value="Submit" type="submit"/>
-        <?php
-            }
-            else{
-        ?>
-                <a class="form-control btn btn-success" href="<?= criarClienteRdf($_REQUEST['firstName'].$_REQUEST['lastName'], $data)?>">RDF File</a>
+            <input class="form-control btn-default" value="Submit" type="submit"/>
         <?php
             }
         ?>
@@ -107,4 +102,10 @@
         
     }
 ?>
-
+<?php
+    if((isset($_REQUEST['firstName'])&&isset($_REQUEST['firstName']))){
+?>
+        <a class="form-control btn btn-success" href="<?= criarClienteRdf($_REQUEST['firstName'].$_REQUEST['lastName'], $data)?>">RDF File</a>
+<?php
+    }
+?>
