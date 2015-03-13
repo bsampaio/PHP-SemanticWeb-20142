@@ -90,7 +90,7 @@ ini_set('display_errors',0);
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <?php 
-                    include 'examples/rdfmaker.php';
+                    include_once './rdfmaker.php';
                 ?>
             </div>
         </div>
