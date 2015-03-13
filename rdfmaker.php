@@ -33,29 +33,33 @@
         return 'http://'.$_SERVER['SERVER_NAME'].'/ontology/person/'.$rdfname.'.rdf';
     }
 ?>
-<html>
-    <head>
-        <title>Cadastro de Clientes - RDF</title>
-    </head>
-    <body>
-        <h1>Cadastro de Clientes</h1>
 
-        <form method="POST">
-            <h2>Identificador</h2>
-            <label>URI</label>
-            <input type="text" name="uri" id="uri" value="" placeholder="<?=$personUrl.'JoséDaSilva'?>"/>
-            <h2>Detalhes</h2>
-            <label>Document</label>
-            <input type="text" name="document" id="document" value="" placeholder="3.333.333-ES"/>
-            <label>First Name</label>
-            <input type="text" name="firstName" id="firstName" value="" placeholder="José"/>
-            <label>Last Name</label>
-            <input type="text" name="lastName" id="lastName" value="" placeholder="Da Silva"/>
-            <label>Email</label>
-            <input type="email" name="email" id="email" value="" placeholder="josedasilva@hotmail.com"/>
-            <input type="submit">
-        </form>
+    <h2>Cadastro de Clientes</h2>
 
+    <form action="./#about" method="POST" class="form-horizontal" role="form">
+        <div class="form-group">
+        <label class="control-label" for="uri">URI</label>
+        <input type="text" class="form-control" name="uri" id="uri" value="" placeholder="<?=$personUrl.'JoséDaSilva'?>"/>
+        </div>
+        <div class="form-group">
+        <label class="control-label" for="document">Document</label>
+        <input type="text" class="form-control" name="document" id="document" value="" placeholder="3.333.333-ES"/>
+        </div>
+        <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" name="firstName" id="firstName" value="" placeholder="José"/>
+        </div>
+        <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" name="lastName" id="lastName" value="" placeholder="Da Silva"/>
+        </div>
+        <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" id="email" value="" placeholder="josedasilva@hotmail.com"/><br/>
+        <input class="form-control btn-default" type="submit">
+        </div>
+
+    </form>
 <?php
     $format_options = array();
     foreach (\EasyRdf\Format::getFormats() as $format) {

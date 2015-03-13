@@ -86,7 +86,7 @@ ini_set('display_errors',0);
     </header>
 
     <!-- About Section -->
-    <section id="about" class="container content-section text-center">
+    <section id="about" class="container content-section">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <?php 
