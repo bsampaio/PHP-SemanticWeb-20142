@@ -1,5 +1,5 @@
 <div class="col-lg-12">
-    <form id="customer" action="./#about" method="POST" class="form-horizontal" role="form">
+    <form id="customer" action="./rdfmaker.php" method="POST" class="form-horizontal" role="form">
         <div class="col-lg-4">
             <h2>Customer</h2>
                 <div class="form-group">
@@ -23,7 +23,7 @@
                 <input type="email" class="form-control" name="email" required="required" id="email" value="" placeholder="josedasilva@hotmail.com"/><br/>
                 </div>
         </div>
-        <div class="col-lg-4 col-lg-offset-3">
+        <div class="col-lg-6 col-lg-offset-2 pull-right">
             <h2>Album</h2>
 
                 <div class="form-group">

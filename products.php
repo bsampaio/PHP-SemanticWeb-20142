@@ -1,5 +1,4 @@
 <?php
-    session_start();
     /**
      * Making a SPARQL SELECT query
      *
@@ -66,7 +65,6 @@
            'data' => $resultArray,
            'query' => $query
        );
-       $_SESSION['albumFinded'] = 'true';
        echo json_encode($data);
     }
     

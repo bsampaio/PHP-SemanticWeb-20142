@@ -1,4 +1,5 @@
 <?php
+    session_start();
 /**
      * Construct a FOAF document with a choice of serialisations
      *
@@ -13,23 +14,27 @@
 
 require_once "vendor/autoload.php";
 
-$personUrl = $_SERVER['SERVER_NAME'].'/ontology/person#';
+$clientUrl = $_SERVER['SERVER_NAME'].'/ontology/client#';
 $albumUrl = $_SERVER['SERVER_NAME'].'/ontology/album#';
+$transactionUrl = $_SERVER['SERVER_NAME'].'/ontology/transaction#';
 
 function criarClienteRdf($rdfname, $data){
-    $filename = 'ontology/person/'.$rdfname.'.rdf';
+    $filename = 'ontology/'.$rdfname.'.rdf';
     $mode = "w";
     $myfile = fopen($filename, $mode);
     fwrite($myfile, $data);
     fclose($myfile);
 
-    return 'ontology/person/'.$rdfname.'.rdf';
+    return 'ontology/'.$rdfname.'.rdf';
 }
 
 $graph = new \EasyRdf\Graph();
 
-#Inserir o namespace de person para utilizar na montagem do RDF/XML
-\EasyRdf\RdfNamespace::set('person', $personUrl);
+#Inserir o namespace de client para utilizar na montagem do RDF/XML
+\EasyRdf\RdfNamespace::set('client', $clientUrl);
+\EasyRdf\RdfNamespace::set('album', $albumUrl);
+\EasyRdf\RdfNamespace::set('transaction', $transactionUrl);
+
 
 //Variaveis do cliente
 $uriCliente = $_POST['uri'];
@@ -39,21 +44,34 @@ $lastName = $_POST['lastName'];
 $email = $_POST['email'];
 
 //Variáveis do álbum
-$
+$title = $_POST['title'];
+$type = $_POST['type'];
+$bandName = $_POST['bandName'];
+$released = $_POST['released'];
+$comment = $_POST['comment'];
+$price = $_POST['price'];
 
 # 1st Technique
-$me = $graph->resource($uriCliente, 'person:Cliente');
-$me->set('person:document', $document);
-$me->set('person:name', $firstName.$lastName);
+$me = $graph->resource($uriCliente, 'transaction:Request');
+$me->set('client:document', $document);
+$me->set('client:name', $firstName.$lastName);
 if (isset($email)) {
     $emailResource = $graph->resource("mailto:".$email);
-    $me->add('person:email', $emailResource);
+    $me->add('client:email', $emailResource);
 }
 
 # 2nd Technique
-$graph->addLiteral($uriCliente, 'person:firstName', $firstName);
-$graph->addLiteral($uriCliente, 'person:lastName', $lastName);
+$graph->addLiteral($uriCliente, 'client:firstName', $firstName);
+$graph->addLiteral($uriCliente, 'client:lastName', $lastName);
 
+# Criando o rdf do pedido
+
+$graph->addLiteral($uriCliente, 'album:price', $price);
+$graph->addLiteral($uriCliente, 'album:comment', $comment);
+$graph->addLiteral($uriCliente, 'album:released', $released);
+$graph->addLiteral($uriCliente, 'album:bandName', $bandName);
+$graph->addLiteral($uriCliente, 'album:type', $type);
+$graph->addLiteral($uriCliente, 'album:title', $title);
 
 
 # Finally output the graph
@@ -61,4 +79,10 @@ $data = $graph->serialise('rdfxml');
 if (!is_scalar($data)) {
     $data = var_export($data, true);
 }
-$_SESSION['uri'] = $uriCliente;
+
+$rdfPath = criarClienteRdf($firstName.$lastName.$albumName, $data);
+
+$_SESSION['rdfPath'] = $rdfPath;
+$_SESSION['rdfData'] = $graph->dump('html');
+
+header("Location:./#rdf");

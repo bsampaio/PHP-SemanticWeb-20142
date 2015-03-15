@@ -33,6 +33,7 @@
     <![endif]-->
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -57,10 +58,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Customer</a>
+                        <a class="page-scroll" href="#order">Order</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Products</a>
+                        <a class="page-scroll" href="#rdf">Graph Dump</a>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -76,8 +77,8 @@
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Semantic Web</h1>
                         <p class="intro-text">A test from Semantic Web - IFES.<br>Created by Breno Grillo & Diego Pasti.</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
+                        <a href="#order" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down"></i>
                         </a>
                     </div>
                 </div>
@@ -85,13 +86,34 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="container content-section">
+    <!-- Order Section -->
+    <section id="order" class="container content-section">
         <div class="row">
             <div class="col-lg-12">
                 <?php 
                     include_once './rdfform.php';
                 ?>
+            </div>
+        </div>
+        
+    </section>
+    
+        
+    </section>
+    <!-- RDF Section -->
+    <section id="rdf" class="container content-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <?php
+                    if(isset($_SESSION['rdfPath'])){
+                ?>
+                <h2>RDF Content <a href="<?=$_SESSION['rdfPath']?>" class="btn btn-warning pull-right" target="_blank">RDF File Download</a> </h2>
+                <pre class="prettyprint">
+                    <?=$_SESSION['rdfData']?>   
+                </pre>
+                <?php 
+                    
+                    } ?>
             </div>
         </div>
         
