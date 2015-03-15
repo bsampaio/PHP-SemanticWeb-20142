@@ -1,4 +1,5 @@
 <?php
+    session_start();
     /**
      * Making a SPARQL SELECT query
      *
@@ -14,7 +15,7 @@
      * @copyright  Copyright (c) 2009-2013 Nicholas J Humfrey
      * @license    http://unlicense.org/
      */
-     
+    
     $albumName = $_POST['albumUri'];
 
     require_once "vendor/autoload.php";
@@ -29,16 +30,29 @@
     
     $result = $sparql->query(
         'SELECT ?title ?type ?bandName ?released ?comment WHERE{'.
-           'res:'. $albumName .' dbprop:type ?type ;'.
-                              'dbprop:title ?title;'.
+            '?res dbprop:name '.'"'.$albumName.'"@en; '.
+                              'dbprop:type ?type ;'.
+                              'rdfs:label ?title;'.
                               'dbprop:relyear ?released;'.
                               'rdfs:comment ?comment;'.
-                              'dbo:musicalBand ?band .'.
+                              'dbprop:artist ?band .'.
            '?band dbprop:name ?bandName .'.
             'FILTER ( lang(?comment) = "en")'.
         '}'.
         'LIMIT 1'
     );
+    
+    $query = 'SELECT ?title ?type ?bandName ?released ?comment WHERE{'.
+            '?res dbprop:name '.'"'.$albumName.'"@en; '.
+                              'dbprop:type ?type ;'.
+                              'rdfs:label ?title;'.
+                              'dbprop:released ?released;'.
+                              'rdfs:comment ?comment;'.
+                              'dbprop:artist ?band .'.
+           '?band dbprop:name ?bandName .'.
+            'FILTER ( lang(?comment) = "en")'.
+        '}'.
+        'LIMIT 1';
     
     foreach ($result as $row) {
        $resultArray = array('title' => $row->title->getValue(),
@@ -49,9 +63,11 @@
                     );
        $data = array(
            'result' => 'true',
-           'data' => $resultArray
+           'data' => $resultArray,
+           'query' => $query
        );
-       //$_SESSION['disc_array'] = $data;
+       $_SESSION['albumFinded'] = 'true';
        echo json_encode($data);
     }
+    
 ?>
