@@ -28,10 +28,13 @@
 
                 <div class="form-group">
                     <label for="album_uri_suffix">Album Name</label>
-                        <input type="text" class="form-control" name="album_uri_suffix" required="required" id="album_uri_suffix" value="" placeholder="Strangeland"/>
+                        <input type="text" class="form-control" name="album_uri_suffix" required="required" id="album_uri_suffix" value="" placeholder="Ten"/>
+                </div>
+                <div class="form-group">
+                        <label for="bandName">Band Name</label>
+                        <input type="text" class="form-control" name="bandName" required="required" id="bandName" value="" placeholder="Pearl Jam"/>
                         <a class="form-control btn btn-default pull-right" id="album_search" style="">Search Details</a>
                 </div>
-
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" name="title" required="required" id="title" value="" placeholder=""/>
@@ -40,10 +43,7 @@
                     <label for="type">Type</label>
                     <input type="text" class="form-control" name="type" required="required" id="type" value="" placeholder=""/>
                 </div>
-                <div class="form-group">
-                    <label for="bandName">Band Name</label>
-                    <input type="text" class="form-control" name="bandName" required="required" id="bandName" value="" placeholder=""/>
-                </div>
+                
                 <div class="form-group">
                         <label for="released">Released</label>
                         <input type="text" class="form-control" name="released" required="required" id="released" value="" placeholder=""/>

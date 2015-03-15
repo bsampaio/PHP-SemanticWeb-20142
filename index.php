@@ -130,26 +130,26 @@
         
         $('input#title').attr("readonly",true);
         $('input#type').attr("readonly",true);
-        $('input#bandName').attr("readonly",true);
         $('input#released').attr("readonly",true);
         $('textarea#comment').attr("readonly",true);
         $('input#price').attr("readonly",true);
         
         $('a#album_search').click(function(){
             var albumUri = $("input#album_uri_suffix").val();
+            var bandName = $("input#bandName").val();
             $.ajax({
                 url: "./products.php",
                 dataType: "json",
                 type: "POST",
                 data: {
                     albumUri: albumUri,
+                    bandName: bandName
                 },
                 cache: false,
                 success: function(data) {
                     if(data.result==="true"){
                         $('input#title').val(data.data.title);
                         $('input#type').val(data.data.type);
-                        $('input#bandName').val(data.data.bandName);
                         $('input#released').val(data.data.released.date);
                         $('textarea#comment').html(data.data.comment);
                         $('input#price').val(Math.floor(Math.random() * 20) + 10);
@@ -158,7 +158,6 @@
                     }else{
                         $('input#title').attr("readonly",false);
                         $('input#type').attr("readonly",false);
-                        $('input#bandName').attr("readonly",false);
                         $('input#released').attr("readonly",false);
                         $('textarea#comment').attr("readonly",false);
                         
@@ -171,7 +170,6 @@
                     alert('Nao foi possivel obter os dados da DBPedia.org')
                     $('input#title').attr("readonly",false);
                     $('input#type').attr("readonly",false);
-                    $('input#bandName').attr("readonly",false);
                     $('input#released').attr("readonly",false);
                     $('textarea#comment').attr("readonly",false);
 
