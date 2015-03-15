@@ -1,7 +1,6 @@
-<?php   
-error_reporting(0);
-ini_set('display_errors',0); 
-?>
+<?php
+    session_start();
+?>   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +31,8 @@ ini_set('display_errors',0);
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -60,7 +60,7 @@ ini_set('display_errors',0);
                         <a class="page-scroll" href="#about">Customer</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Download</a>
+                        <a class="page-scroll" href="#download">Products</a>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -88,7 +88,7 @@ ini_set('display_errors',0);
     <!-- About Section -->
     <section id="about" class="container content-section">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-12">
                 <?php 
                     include_once './rdfmaker.php';
                 ?>
@@ -143,8 +143,7 @@ ini_set('display_errors',0);
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>

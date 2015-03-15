@@ -48,10 +48,10 @@ use EasyRdf\Resource;
  */
 class Result extends \ArrayIterator
 {
-    private $type = null;
-    private $boolean = null;
+    public $type = null;
+    public $boolean = null;
 
-    private $fields = array();
+    public $fields = array();
 
     /** A constant for the SPARQL Query Results XML Format namespace */
     const SPARQL_XML_RESULTS_NS = 'http://www.w3.org/2005/sparql-results#';
@@ -251,7 +251,7 @@ class Result extends \ArrayIterator
      *
      * @ignore
      */
-    protected function newTerm($data)
+    public function newTerm($data)
     {
         switch($data['type']) {
             case 'bnode':
@@ -273,7 +273,7 @@ class Result extends \ArrayIterator
      *
      * @ignore
      */
-    protected function parseXml($data)
+    public function parseXml($data)
     {
         $doc = new \DOMDocument();
         $doc->loadXML($data);
@@ -345,7 +345,7 @@ class Result extends \ArrayIterator
      *
      * @ignore
      */
-    protected function parseJson($data)
+    public function parseJson($data)
     {
         // Decode JSON to an array
         $data = json_decode($data, true);

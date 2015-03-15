@@ -238,7 +238,7 @@ class Client
      *
      * @ignore
      */
-    protected function request($type, $query)
+    public function request($type, $query)
     {
         $processed_query = $this->preprocessQuery($query);
         $response = $this->executeQuery($processed_query, $type);
@@ -277,7 +277,7 @@ class Client
      * @param string $query
      * @return string
      */
-    protected function preprocessQuery($query)
+    public function preprocessQuery($query)
     {
         // Check for undefined prefixes
         $prefixes = '';
@@ -309,7 +309,7 @@ class Client
         // Tell the server which response formats we can parse
         $sparql_results_types = array(
             'application/sparql-results+json' => 1.0,
-            'application/sparql-results+xml' => 0.8
+            //'application/sparql-results+xml' => 0.8
         );
 
         if ($type == 'update') {
