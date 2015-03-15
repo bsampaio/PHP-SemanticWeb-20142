@@ -2,7 +2,7 @@
     <form id="customer" action="./rdfmaker.php" method="POST" class="form-horizontal" role="form">
         <div class="col-lg-4">
             <h2>Customer</h2>
-                <div class="form-group">
+                <div class="form-group ">
                 <label class="control-label" for="uri">URI</label>
                 <input type="text" class="form-control" readonly="readonly" name="uri" id="uri" value=""/>
                 </div>
@@ -28,8 +28,8 @@
 
                 <div class="form-group">
                     <label for="album_uri_suffix">Album Name</label>
-                        <input type="text" class="form-control" name="album_uri_suffix" required="required" id="album_uri_suffix" value="" placeholder="Strangeland"/><br/>
-                        <a class="btn btn-default" id="album_search">Search Details</a>
+                        <input type="text" class="form-control" name="album_uri_suffix" required="required" id="album_uri_suffix" value="" placeholder="Strangeland"/>
+                        <a class="form-control btn btn-default pull-right" id="album_search" style="">Search Details</a>
                 </div>
 
                 <div class="form-group">
