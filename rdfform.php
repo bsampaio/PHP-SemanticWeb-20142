@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     <label for="album_uri_suffix">Album Name</label>
-                        <input type="text" class="form-control" name="album_uri_suffix" required="required" id="album_uri_suffix" value="" placeholder="I_See_Fire"/><br/>
+                        <input type="text" class="form-control" name="album_uri_suffix" required="required" id="album_uri_suffix" value="" placeholder="Strangeland"/><br/>
                         <a class="btn btn-default" id="album_search">Search Details</a>
                 </div>
 

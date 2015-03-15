@@ -14,7 +14,7 @@
 require_once "vendor/autoload.php";
 
 $personUrl = $_SERVER['SERVER_NAME'].'/ontology/person#';
-$albumUrl = $_SERVER['SERVER_NAME'].'/ontology/person#';
+$albumUrl = $_SERVER['SERVER_NAME'].'/ontology/album#';
 
 function criarClienteRdf($rdfname, $data){
     $filename = 'ontology/person/'.$rdfname.'.rdf';
@@ -31,12 +31,15 @@ $graph = new \EasyRdf\Graph();
 #Inserir o namespace de person para utilizar na montagem do RDF/XML
 \EasyRdf\RdfNamespace::set('person', $personUrl);
 
+//Variaveis do cliente
 $uriCliente = $_POST['uri'];
 $document = $_POST['document'];
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $email = $_POST['email'];
 
+//Variáveis do álbum
+$
 
 # 1st Technique
 $me = $graph->resource($uriCliente, 'person:Cliente');
