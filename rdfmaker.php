@@ -52,7 +52,7 @@ $comment = $_POST['comment'];
 $price = $_POST['price'];
 
 # 1st Technique
-$me = $graph->resource($uri, 'transaction:Request');
+$me = $graph->resource($uriCliente, 'transaction:Request');
 $me->set('client:document', $document);
 $me->set('client:name', $firstName.$lastName);
 if (isset($email)) {
