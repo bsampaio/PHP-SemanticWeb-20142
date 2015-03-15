@@ -40,7 +40,8 @@
                     'rdfs:comment ?comment;'.
                     'dbprop:artist ?band .'.
            '?band    dbprop:name ?bandName .'.
-            'FILTER ( lang(?comment) = "en")'.
+            'FILTER ( lang(?comment) = "en").'.
+            'FILTER ( lang(?title) = "en")'.
         '}'.
         'LIMIT 1';
     
