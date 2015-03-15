@@ -62,6 +62,10 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="#rdf">Graph Dump</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -116,13 +120,23 @@
                     } ?>
             </div>
         </div>
-        
     </section>
-
+    
+    <!-- About Section -->
+    <section id="about" class="container content-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <?php 
+                    include_once './about.php';
+                ?>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Your Website 2014</p>
+            <p>Copyright &copy; <a href="http://bsampaio.tk" target="_blank">Breno Grillo</a> 2014</p>
         </div>
     </footer>
 

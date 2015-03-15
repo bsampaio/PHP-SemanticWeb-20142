@@ -1,7 +1,8 @@
 <div class="col-lg-12">
+    <h2 class="text-center">Order</h2><br/>
     <form id="customer" action="./rdfmaker.php" method="POST" class="form-horizontal" role="form">
         <div class="col-lg-4">
-            <h2>Customer</h2>
+            <h2 class="text-center">Customer</h2>
                 <div class="form-group ">
                 <label class="control-label" for="uri">URI</label>
                 <input type="text" class="form-control" readonly="readonly" name="uri" id="uri" value=""/>
@@ -23,8 +24,8 @@
                 <input type="email" class="form-control" name="email" required="required" id="email" value="" placeholder="josedasilva@hotmail.com"/><br/>
                 </div>
         </div>
-        <div class="col-lg-6 col-lg-offset-2 pull-right">
-            <h2>Album</h2>
+        <div class="col-lg-6 col-lg-offset-2">
+            <h2 class="text-center">Album</h2>
 
                 <div class="form-group">
                     <label for="album_uri_suffix">Album Name</label>
@@ -54,10 +55,9 @@
                 </div>
                 <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="number" class="form-control" name="price" required="" id="price" value="" placeholder="10"/><br/>
+                        <input type="number" class="form-control" name="price" required="" id="price" value="" placeholder="10"/>
+                        <input type="submit" id="formSubmit" class="form-control btn btn-default" disabled="disabled" value="Submit Order"/>
                 </div>
-            <div class="col-lg-12">
-                <input type="submit" id="formSubmit" class="form-control btn btn-default" disabled="disabled" value="Submit"/>
             </div>
         </div>  
     </form>

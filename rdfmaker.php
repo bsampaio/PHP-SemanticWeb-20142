@@ -80,7 +80,7 @@ if (!is_scalar($data)) {
     $data = var_export($data, true);
 }
 
-$rdfPath = criarClienteRdf($firstName.$lastName.$albumName, $data);
+$rdfPath = criarClienteRdf($firstName.$lastName.$title, $data);
 
 $_SESSION['rdfPath'] = $rdfPath;
 $_SESSION['rdfData'] = $graph->dump('html');
