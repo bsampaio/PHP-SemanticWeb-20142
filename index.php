@@ -150,7 +150,7 @@
                         $('input#title').val(data.data.title);
                         $('input#type').val(data.data.type);
                         $('input#bandName').val(data.data.bandName);
-                        $('input#released').val(data.data.released);
+                        $('input#released').val(data.data.released.date);
                         $('textarea#comment').html(data.data.comment);
                         $('input#price').val(Math.floor(Math.random() * 20) + 10);
                         

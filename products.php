@@ -29,14 +29,16 @@
     
     $result = $sparql->query(
         'SELECT ?title ?type ?bandName ?released ?comment WHERE{'.
-            '?res dbprop:name '.'"'.$albumName.'"@en; '.
+            '?res dbprop:name '.'"'.$albumName.'"@en . '.
+            '?res rdf:type dbo:MusicalWork;'.
                               'dbprop:type ?type ;'.
                               'rdfs:label ?title;'.
-                              'dbprop:relyear ?released;'.
+                              'dbprop:released ?released;'.
                               'rdfs:comment ?comment;'.
                               'dbprop:artist ?band .'.
            '?band dbprop:name ?bandName .'.
-            'FILTER ( lang(?comment) = "en")'.
+            'FILTER ( lang(?comment) = "en") .'.
+            'FILTER ( lang(?title) = "en")'.
         '}'.
         'LIMIT 1'
     );
