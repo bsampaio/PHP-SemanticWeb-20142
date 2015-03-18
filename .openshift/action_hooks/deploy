@@ -1,11 +1,13 @@
 #!/bin/bash
 # Run composer install
 
-cd app-root/runtime/repo/php
+cd app-root/runtime/repo/
+export COMPOSER_HOME="$OPENSHIFT_DATA_DIR/.composer"
+if [ ! -f "$OPENSHIFT_DATA_DIR/composer.phar" ]; then
+    curl -s https://getcomposer.org/installer | /opt/rh/php54/root/usr/bin/php -- --install-dir=$OPENSHIFT_DATA_DIR
+else
+    /opt/rh/php54/root/usr/bin/php $OPENSHIFT_DATA_DIR/composer.phar self-update
+fi
 
-export HOME_ORIGIN=$HOME
-export HOME=$HOME/app-root/runtime/repo/php
+( unset GIT_DIR ; cd $OPENSHIFT_REPO_DIR ; /opt/rh/php54/root/usr/bin/php $OPENSHIFT_DATA_DIR/composer.phar install )
 
-/usr/bin/php composer.phar install
-
-export HOME=$HOME_ORIGIN
