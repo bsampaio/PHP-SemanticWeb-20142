@@ -192,7 +192,9 @@
            event.preventDefault();
 
            var filename = $('input#firstName').val()+$('input#lastName').val()+$('input#bandName').val();
-           $('input#uri').val($.trim(filename.valueOf().replace(/ /g,'')));
+           filename = filename.valueOf().replace(/ /g,'');
+           filename = filename.valueOf().replace('/','-');
+           $('input#uri').val($.trim(filename));
 
            /* Album data */
            var title = $('input#title').val();
