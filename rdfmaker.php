@@ -14,18 +14,17 @@
 
 require_once "vendor/autoload.php";
 
-$clientUrl = $_SERVER['SERVER_NAME'].'/ontology/client#';
-$albumUrl = $_SERVER['SERVER_NAME'].'/ontology/album#';
-$transactionUrl = $_SERVER['SERVER_NAME'].'/ontology/transaction#';
+$clientUrl = $_SERVER['SERVER_NAME'].'/ontology/client.owl';
+$albumUrl = $_SERVER['SERVER_NAME'].'/ontology/album.owl';
+$transactionUrl = $_SERVER['SERVER_NAME'].'/ontology/transaction.owl';
 
 function criarClienteRdf($rdfname, $data){
-    $filename = 'ontology/'.$rdfname.'.rdf';
     $mode = "w";
-    $myfile = fopen($filename, $mode);
+    $myfile = fopen($rdfname, $mode);
     fwrite($myfile, $data);
     fclose($myfile);
 
-    return 'ontology/'.$rdfname.'.rdf';
+    return $rdfname;
 }
 
 $graph = new \EasyRdf\Graph();
@@ -37,7 +36,7 @@ $graph = new \EasyRdf\Graph();
 
 
 //Variaveis do cliente
-$uriCliente = $_POST['uri'];
+$uriTransaction = 'resource/'.$_POST['uri'].'.rdf';
 $document = $_POST['document'];
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
@@ -52,7 +51,7 @@ $comment = $_POST['comment'];
 $price = $_POST['price'];
 
 # 1st Technique
-$me = $graph->resource($uriCliente, 'transaction:Request');
+$me = $graph->resource($uriTransaction, 'transaction:Request');
 $me->set('client:document', $document);
 $me->set('client:name', $firstName.$lastName);
 if (isset($email)) {
@@ -61,17 +60,17 @@ if (isset($email)) {
 }
 
 # 2nd Technique
-$graph->addLiteral($uriCliente, 'client:firstName', $firstName);
-$graph->addLiteral($uriCliente, 'client:lastName', $lastName);
+$graph->addLiteral($uriTransaction, 'client:firstName', $firstName);
+$graph->addLiteral($uriTransaction, 'client:lastName', $lastName);
 
 # Criando o rdf do pedido
 
-$graph->addLiteral($uriCliente, 'album:price', $price);
-$graph->addLiteral($uriCliente, 'album:comment', $comment);
-$graph->addLiteral($uriCliente, 'album:released', $released);
-$graph->addLiteral($uriCliente, 'album:bandName', $bandName);
-$graph->addLiteral($uriCliente, 'album:type', $type);
-$graph->addLiteral($uriCliente, 'album:title', $title);
+$graph->addLiteral($uriTransaction, 'album:price', $price);
+$graph->addLiteral($uriTransaction, 'album:comment', $comment);
+$graph->addLiteral($uriTransaction, 'album:released', $released);
+$graph->addLiteral($uriTransaction, 'album:bandName', $bandName);
+$graph->addLiteral($uriTransaction, 'album:type', $type);
+$graph->addLiteral($uriTransaction, 'album:title', $title);
 
 
 # Finally output the graph
@@ -80,9 +79,13 @@ if (!is_scalar($data)) {
     $data = var_export($data, true);
 }
 
-$rdfPath = criarClienteRdf($firstName.$lastName.$title, $data);
+$rdfPath = criarClienteRdf($uriTransaction, $data);
 
-$_SESSION['rdfPath'] = $rdfPath;
-$_SESSION['rdfData'] = $graph->dump('html');
+$jsonResponse = array(
+  'success' => true,
+  'rdfPath' => $rdfPath,
+  'rdfDataHTML' => $graph->dump('html'),
+  'redirectLocation' => '#rdf'
+);
 
-header("Location:./#rdf");
+echo json_encode($jsonResponse);

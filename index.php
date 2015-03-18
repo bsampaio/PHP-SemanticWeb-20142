@@ -108,16 +108,9 @@
     <section id="rdf" class="container content-section">
         <div class="row">
             <div class="col-lg-12">
-                <?php
-                    if(isset($_SESSION['rdfPath'])){
-                ?>
-                <h2>RDF Content <a href="<?=$_SESSION['rdfPath']?>" class="btn btn-warning pull-right" target="_blank">RDF File Download</a> </h2>
-                <pre class="prettyprint">
-                    <?=$_SESSION['rdfData']?>   
+                <h2>RDF Content <a id="rdf-download" href="#" class="btn btn-warning pull-right" target="_blank">RDF File Download</a> </h2>
+                <pre id="graph-data"class="prettyprint">
                 </pre>
-                <?php 
-                    
-                    } ?>
             </div>
         </div>
     </section>
@@ -139,7 +132,7 @@
             <p>Copyright &copy; <a href="http://bsampaio.tk" target="_blank">Breno Grillo</a> 2014</p>
         </div>
     </footer>
-
+    
     <script type="text/javascript">
         
         $('input#title').attr("readonly",true);
@@ -194,7 +187,62 @@
             });
         });
     </script>
+    <script type="text/javascript">
+        $('form#customer').submit(function(event){
+           event.preventDefault();
 
+           var filename = $('input#firstName').val()+$('input#lastName').val()+$('input#bandName').val();
+           $('input#uri').val($.trim(filename.valueOf().replace(/ /g,'')));
+
+           /* Album data */
+           var title = $('input#title').val();
+           var bandName = $('input#bandName').val();
+           var type = $('input#type').val();
+           var released = $('input#released').val();
+           var comment = $('textarea#comment').val();
+           var price = $('input#price').val();
+
+           /* Customer data */
+           var uri = $('input#uri').val();
+           var document = $('input#document').val();
+           var firstName = $('input#firstName').val();
+           var lastName = $('input#lastName').val();
+           var email = $('input#email').val();
+
+           $.ajax({
+                url: "./rdfmaker.php",
+                dataType: "json",
+                type: "POST",
+                data: {
+                    uri: uri,
+                    document: document,
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    title: title,
+                    bandName: bandName,
+                    type: type,
+                    released: released,
+                    comment: comment,
+                    price: price
+                },
+                cache: false,
+                success: function(data) {
+                    if(data.success === true){
+                       $('#rdf-download').attr("href",data.rdfPath);
+                       $('#graph-data').html(data.rdfDataHTML);
+                       window.location = data.redirectLocation;
+                    }else{
+                       alert(data);
+                    }
+                },
+                error: function(err) {
+                    var x = err;
+                    alert(err);
+                }
+           });
+        });
+    </script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 

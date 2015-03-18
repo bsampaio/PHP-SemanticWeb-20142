@@ -63,12 +63,3 @@
     </form>
     
 </div>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('form#customer').submit(function(){
-           var filename = $('input#firstName').val()+$('input#lastName').val();
-           var olduri = '/ontology/person#';
-           $('input#uri').val(olduri+filename);
-        });
-    });
-</script>
